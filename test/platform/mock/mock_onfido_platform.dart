@@ -32,7 +32,7 @@ class MockOnfidoPlatform with MockPlatformInterfaceMixin implements OnfidoPlatfo
   late EnterpriseFeatures? startStudioEnterpriseFeatures;
 
   @override
-  Future<void> startWorkflow(
+  Future<List<OnfidoResult>> startWorkflow(
       {required String sdkToken,
       required String workflowRunId,
       String? iosLocalizationFileName,
@@ -42,6 +42,6 @@ class MockOnfidoPlatform with MockPlatformInterfaceMixin implements OnfidoPlatfo
     startStudioSdkToken = sdkToken;
     startStudioWorkflowRunId = workflowRunId;
     startStudioEnterpriseFeatures = enterpriseFeatures;
-    return Future.value();
+    return Future.value(startResult!);
   }
 }

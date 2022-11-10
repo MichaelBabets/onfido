@@ -34,7 +34,7 @@ class Onfido {
   }
 
   /// Start Onfido SDK using [Workflow].
-  Future<void> startWorkflow(String workflowRunId) {
+  Future<List<OnfidoResult>> startWorkflow(String workflowRunId) {
     return OnfidoPlatform.instance.startWorkflow(
         sdkToken: _sdkToken,
         workflowRunId: workflowRunId,

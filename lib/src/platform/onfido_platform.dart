@@ -12,7 +12,7 @@ abstract class OnfidoPlatform {
       IOSAppearance? iosAppearance,
       EnterpriseFeatures? enterpriseFeatures});
 
-  Future<void> startWorkflow(
+  Future<List<OnfidoResult>> startWorkflow(
       {required String sdkToken,
       required String workflowRunId,
       IOSAppearance? iosAppearance,

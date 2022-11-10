@@ -26,7 +26,7 @@ class MethodChannelOnfido extends OnfidoPlatform {
   }
 
   @override
-  Future<void> startWorkflow(
+  Future<List<OnfidoResult>> startWorkflow(
       {required String sdkToken,
       required String workflowRunId,
       IOSAppearance? iosAppearance,
@@ -37,6 +37,7 @@ class MethodChannelOnfido extends OnfidoPlatform {
         iosAppearance: iosAppearance,
         iosLocalizationFileName: iosLocalizationFileName);
 
-    await methodChannel.invokeMethod('startStudio', arguments);
+    final result = await methodChannel.invokeMethod('startStudio', arguments);
+    return OnfidoResultSerializer.deserialize(result);
   }
 }
